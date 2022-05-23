@@ -7,9 +7,66 @@
     </title>
 </head>
 <body>
-    <h1>Ayy</h1>
+    <h1 style="text-align: center;">Ayy</h1>
     <script>
-        
+
+        function computerPlay() {
+            
+            let number = Math.floor(Math.random()*3);
+
+            if (number == 0) {
+                return "Rock"
+            }
+            else if (number == 1) {
+                return "Paper"
+            }
+            else {
+                return "Scissors"
+            }
+
+        }
+
+        let playerAnswer = prompt("Enter le rock, paper or scissors");
+
+        function game(playerSelection, computerSelection) {
+            
+            let p = playerSelection.toUpperCase();
+            let c = computerSelection.toUpperCase();
+
+            if (p == "ROCK" && c == "ROCK") {
+                return console.log("Tie! Both chose Rock.");
+            }
+            else if (p == "ROCK" && c == "PAPER") {
+                return console.log("You lose! Paper beats Rock!");
+            }
+            else if (p == "ROCK" && c == "SCISSORS") {
+                return console.log("You win! Rock beats Scissors!")
+            }
+            else if (p == "PAPER" && c == "ROCK") {
+                return console.log("You win! Paper beats Rock!");
+            }
+            else if (p == "PAPER" && c == "PAPER") {
+                return console.log("Tie! Both chose Paper.");
+            }
+            else if (p == "PAPER" && c == "SCISSORS") {
+                return console.log("You lose! Scissors beat Paper!");
+            }
+            else if (p == "SCISSORS" && c == "ROCK") {
+                return console.log("You lose! Rock beats Scissors!");
+            }
+            else if (p == "SCISSORS" && c == "PAPER") {
+                return console.log("You win! Scissors beat Paper!");
+            }
+            else if (p == "SCISSORS" && c == "SCISSORS") {
+                return console.log("Tie! Both chose Scissors.");
+            }
+            else {
+                return console.log("Please enter a valid input (Rock, Paper, Scissors)");
+            }
+        }
+
+        game(playerAnswer, computerPlay())
+
     </script>
 </body>
 </html>
