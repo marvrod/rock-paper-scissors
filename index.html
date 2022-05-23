@@ -88,6 +88,17 @@
 
             console.log(`Computer score = ${computerWins}, Player score = ${playerWins}`)
             }
+        
+            if (computerWins > playerWins) {
+                console.log("Computer wins! LOL");
+            }
+            else if (computerWins < playerWins) {
+                console.log("Congratulations! You won!");
+            }
+            else {
+                console.log("It's a tie!!")
+            }
+
         }
         
         game();
