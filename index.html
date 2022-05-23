@@ -26,35 +26,46 @@
 
         }
 
-        let playerAnswer = prompt("Enter le rock, paper or scissors");
 
-        function game(playerSelection, computerSelection) {
+
+        let playerWins = 0;
+        let computerWins = 0;
+
+        function playRound(playerSelection, computerSelection) {
             
+            // p is the player's input, c is the computer's.
             let p = playerSelection.toUpperCase();
             let c = computerSelection.toUpperCase();
+
 
             if (p == "ROCK" && c == "ROCK") {
                 return console.log("Tie! Both chose Rock.");
             }
             else if (p == "ROCK" && c == "PAPER") {
+                computerWins++;
                 return console.log("You lose! Paper beats Rock!");
             }
             else if (p == "ROCK" && c == "SCISSORS") {
+                playerWins++;
                 return console.log("You win! Rock beats Scissors!")
             }
             else if (p == "PAPER" && c == "ROCK") {
+                playerWins++;
                 return console.log("You win! Paper beats Rock!");
             }
             else if (p == "PAPER" && c == "PAPER") {
                 return console.log("Tie! Both chose Paper.");
             }
             else if (p == "PAPER" && c == "SCISSORS") {
+                computerWins++;
                 return console.log("You lose! Scissors beat Paper!");
             }
             else if (p == "SCISSORS" && c == "ROCK") {
+                computerWins++;
                 return console.log("You lose! Rock beats Scissors!");
             }
             else if (p == "SCISSORS" && c == "PAPER") {
+                playerWins++;
                 return console.log("You win! Scissors beat Paper!");
             }
             else if (p == "SCISSORS" && c == "SCISSORS") {
@@ -64,8 +75,22 @@
                 return console.log("Please enter a valid input (Rock, Paper, Scissors)");
             }
         }
+ 
 
-        game(playerAnswer, computerPlay())
+
+        function game() {
+           
+            for (let i=0; i <5; i++) {
+
+            let playerPlay = prompt("Enter le rock, paper or scissors");
+            
+            playRound(playerPlay, computerPlay());
+
+            console.log(`Computer score = ${computerWins}, Player score = ${playerWins}`)
+            }
+        }
+        
+        game();
 
     </script>
 </body>
