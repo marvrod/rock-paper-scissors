@@ -106,31 +106,6 @@
         
             }
 
- 
-
-
-        function game() {
-           
- 
-
-            
-            playRound(playerPlay2, computerPlay());
-
-            console.log(`Computer score = ${computerWins}, Player score = ${playerWins}`)
-
-        
-            if (computerWins > playerWins) {
-                console.log("Computer wins! LOL");
-            }
-            else if (computerWins < playerWins) {
-                console.log("Congratulations! You won!");
-            }
-            else {
-                console.log("It's a tie!!")
-            }
-
-        }
-
     // Functions for execution
 
     let playerPlay2 = "";
@@ -161,7 +136,6 @@
     paper.addEventListener('click', paperPlease);
 
     // Div for showing results
-
     const gameResults = document.createElement("div");
     container.appendChild(gameResults);
     gameResults.style.padding="40px";
