@@ -5,9 +5,16 @@
     <title>
         Rock, paper, scissors
     </title>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1 style="text-align: center;">Ayy</h1>
+    <br>
+    <div id = "container" style = "text-align: center;">
+    <button id = "rock">Rock</button>
+    <button id = "paper">Paper</button>
+    <button id = "scissors">Scissors</button><br>
+    </div><br>
     <script>
 
         function computerPlay() {
@@ -80,14 +87,13 @@
 
         function game() {
            
-            for (let i=0; i <5; i++) {
+ 
 
-            let playerPlay = prompt("Enter le rock, paper or scissors");
             
-            playRound(playerPlay, computerPlay());
+            playRound(playerPlay2, computerPlay());
 
             console.log(`Computer score = ${computerWins}, Player score = ${playerWins}`)
-            }
+
         
             if (computerWins > playerWins) {
                 console.log("Computer wins! LOL");
@@ -100,8 +106,43 @@
             }
 
         }
-        
-        game();
+
+    // Functions for execution
+
+    let playerPlay2 = "";
+    function rockPlease() {
+        playerPlay2 = "Rock";
+        playRound(playerPlay2, computerPlay());
+    }
+
+    function scissorsPlease() {
+        playerPlay2 = "Scissors";
+        playRound(playerPlay2, computerPlay());
+    }
+
+    function paperPlease() {
+        playerPlay2 = "Paper";
+        playRound(playerPlay2, computerPlay());
+    }
+
+    // Variables for event listening
+    const container = document.querySelector("#container");
+    const rock = document.querySelector("#rock");
+    const scissors = document.querySelector("#scissors");
+    const paper = document.querySelector("#paper");
+
+    // Event listening and execution
+    rock.addEventListener('click', rockPlease);
+    scissors.addEventListener('click', scissorsPlease);
+    paper.addEventListener('click', paperPlease);
+
+    // Div for showing results
+
+    const gameResults = document.createElement("div");
+    container.appendChild(gameResults);
+    gameResults.style.height="100px";
+    gameResults.style.backgroundColor="gray";
+    gameResults.style.textAling="center";
 
     </script>
 </body>
