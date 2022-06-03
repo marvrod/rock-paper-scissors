@@ -5,10 +5,11 @@
     <title>
         Rock, paper, scissors
     </title>
-    <script src="script.js" defer></script>
+
 </head>
 <body>
-    <h1 style="text-align: center;">Ayy</h1>
+    <h1 style="text-align: center;">Rock, paper, scissors! Everyone's favorite 
+        game. <br>Choose your answer carefully:</h1>
     <br>
     <div id = "container" style = "text-align: center;">
     <button id = "rock">Rock</button>
@@ -37,6 +38,7 @@
 
         let playerWins = 0;
         let computerWins = 0;
+        const congrats = document.createElement("p");
 
         function playRound(playerSelection, computerSelection) {
             
@@ -46,42 +48,64 @@
 
 
             if (p == "ROCK" && c == "ROCK") {
-                return console.log("Tie! Both chose Rock.");
+                gameResults.textContent = `Tie! Both chose Rock. Computer
+                has ${computerWins} points and you have ${playerWins}.`;
             }
             else if (p == "ROCK" && c == "PAPER") {
                 computerWins++;
-                return console.log("You lose! Paper beats Rock!");
+                gameResults.textContent =`You lose! Paper beats Rock! Computer
+                has ${computerWins} points and you have ${playerWins}.`;
             }
             else if (p == "ROCK" && c == "SCISSORS") {
                 playerWins++;
-                return console.log("You win! Rock beats Scissors!")
+                gameResults.textContent = `You win! Rock beats Scissors! Computer
+                has ${computerWins} points and you have ${playerWins}.`
             }
             else if (p == "PAPER" && c == "ROCK") {
                 playerWins++;
-                return console.log("You win! Paper beats Rock!");
+                gameResults.textContent = `You win! Paper beats Rock! Computer
+                has ${computerWins} points and you have ${playerWins}.`;
             }
             else if (p == "PAPER" && c == "PAPER") {
-                return console.log("Tie! Both chose Paper.");
+                gameResults.textContent = `Tie! Both chose Paper. Computer
+                has ${computerWins} points and you have ${playerWins}.`;
             }
             else if (p == "PAPER" && c == "SCISSORS") {
                 computerWins++;
-                return console.log("You lose! Scissors beat Paper!");
+                gameResults.textContent = `You lose! Scissors beat Paper! Computer
+                has ${computerWins} points and you have ${playerWins}.`;
             }
             else if (p == "SCISSORS" && c == "ROCK") {
                 computerWins++;
-                return console.log("You lose! Rock beats Scissors!");
+                gameResults.textContent = `You lose! Rock beats Scissors! Computer
+                has ${computerWins} points and you have ${playerWins}.`;
             }
             else if (p == "SCISSORS" && c == "PAPER") {
                 playerWins++;
-                return console.log("You win! Scissors beat Paper!");
+                gameResults.textContent = `You win! Scissors beat Paper! Computer
+                has ${computerWins} points and you have ${playerWins}.`;
             }
             else if (p == "SCISSORS" && c == "SCISSORS") {
-                return console.log("Tie! Both chose Scissors.");
+                gameResults.textContent = `Tie! Both chose Scissors. Computer
+                has ${computerWins} points and you have ${playerWins}.`;
             }
             else {
-                return console.log("Please enter a valid input (Rock, Paper, Scissors)");
+                gameResults.textContent = "Please enter a valid input (Rock, Paper, Scissors)";
             }
-        }
+        
+            if (computerWins == 5 && playerWins < 5) {
+                congrats.textContent = "Computer wins! LOL";
+                container.appendChild(congrats);
+            }
+
+            else if (playerWins == 5 && computerWins < 5) {
+                congrats.textContent = "You win! Congratulations!";
+                container.appendChild(congrats);
+            }
+
+        
+            }
+
  
 
 
@@ -140,8 +164,7 @@
 
     const gameResults = document.createElement("div");
     container.appendChild(gameResults);
-    gameResults.style.height="100px";
-    gameResults.style.backgroundColor="gray";
+    gameResults.style.padding="40px";
     gameResults.style.textAling="center";
 
     </script>
